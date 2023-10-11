@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Test extends Model
+class StandardTest extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'builder',
+        'options',
     ];
 
     protected $casts = [
-        'builder' => 'array',
-    ];
+        'options' => 'array',
+    ];    
 }

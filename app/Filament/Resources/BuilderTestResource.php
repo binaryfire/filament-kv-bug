@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
-use App\Models\Test;
+use App\Models\BuilderTest;
 use Filament\Tables;
 use Filament\Forms\Set;
 use Filament\Forms\Form;
@@ -17,13 +17,13 @@ use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Builder\Block;
-use App\Filament\Resources\TestResource\Pages;
+use App\Filament\Resources\BuilderTestResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\TestResource\RelationManagers;
+use App\Filament\Resources\BuilderTestResource\RelationManagers;
 
-class TestResource extends Resource
+class BuilderTestResource extends Resource
 {
-    protected static ?string $model = Test::class;
+    protected static ?string $model = BuilderTest::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -110,9 +110,9 @@ class TestResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTests::route('/'),
-            'create' => Pages\CreateTest::route('/create'),
-            'edit' => Pages\EditTest::route('/{record}/edit'),
+            'index' => Pages\ListBuilderTests::route('/'),
+            'create' => Pages\CreateBuilderTest::route('/create'),
+            'edit' => Pages\EditBuilderTest::route('/{record}/edit'),
         ];
     }    
 

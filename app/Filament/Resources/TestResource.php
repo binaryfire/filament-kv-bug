@@ -34,7 +34,7 @@ class TestResource extends Resource
                 Section::make('Builder')
                     ->collapsible()
                     ->schema([
-                        Builder::make('options')
+                        Builder::make('builder')
                             ->blocks([
                                 Block::make('text')
                                     ->label('Text input')
@@ -51,6 +51,7 @@ class TestResource extends Resource
                                         KeyValue::make('options')
                                             ->addButtonLabel('Add option')
                                             ->keyLabel('Value')
+                                            ->reorderable()
                                             ->valueLabel('Label'),
                                         Checkbox::make('is_required'),
                                     ]),

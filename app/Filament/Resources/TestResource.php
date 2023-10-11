@@ -51,8 +51,8 @@ class TestResource extends Resource
                                         KeyValue::make('options')
                                             ->addButtonLabel('Add option')
                                             ->keyLabel('Value')
-                                            ->reorderable()
-                                            ->valueLabel('Label'),
+                                            ->valueLabel('Label')
+                                            ->reorderable(),
                                         Checkbox::make('is_required'),
                                     ]),
 

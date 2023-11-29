@@ -3,11 +3,11 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
-use App\Models\BuilderTest;
 use Filament\Tables;
 use Filament\Forms\Set;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Models\BuilderTest;
 use Illuminate\Support\Str;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Grid;
@@ -15,10 +15,11 @@ use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\KeyValue;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Builder\Block;
-use App\Filament\Resources\BuilderTestResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\BuilderTestResource\Pages;
 use App\Filament\Resources\BuilderTestResource\RelationManagers;
 
 class BuilderTestResource extends Resource
@@ -31,6 +32,10 @@ class BuilderTestResource extends Resource
     {
         return $form
             ->schema([
+                TextInput::make('name')
+                    ->required()
+                    ->autofocus()
+                    ->placeholder('Enter name'),
                 Section::make('Builder')
                     ->collapsible()
                     ->schema([
@@ -42,7 +47,8 @@ class BuilderTestResource extends Resource
                                     ->schema([
                                         self::getFieldNameInput(),
                                         Checkbox::make('is_required'),
-                                    ]),
+                                    ])
+                                    ->maxItems(1),
 
                                 Block::make('select')
                                     ->icon('heroicon-o-chevron-up-down')
@@ -85,7 +91,9 @@ class BuilderTestResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name')
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 //

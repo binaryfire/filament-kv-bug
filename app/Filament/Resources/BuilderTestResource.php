@@ -40,15 +40,14 @@ class BuilderTestResource extends Resource
                                     ->label('Text input')
                                     ->icon('heroicon-o-chat-bubble-bottom-center-text')
                                     ->schema([
-                                        //self::getFieldNameInput(),
+                                        self::getFieldNameInput(),
                                         Checkbox::make('is_required'),
-                                    ])
-                                    ->maxItems(1),
+                                    ]),
 
                                 Block::make('select')
                                     ->icon('heroicon-o-chevron-up-down')
                                     ->schema([
-                                        //self::getFieldNameInput(),
+                                        self::getFieldNameInput(),
                                         KeyValue::make('options')
                                             ->addButtonLabel('Add option')
                                             ->keyLabel('Value')
@@ -57,17 +56,17 @@ class BuilderTestResource extends Resource
                                         Checkbox::make('is_required'),
                                     ]),
 
-                                    Block::make('checkbox')
+                                Block::make('checkbox')
                                     ->icon('heroicon-o-check-circle')
                                     ->schema([
-                                        //self::getFieldNameInput(),
+                                        self::getFieldNameInput(),
                                         Checkbox::make('is_required'),
                                     ]),
 
                                 Block::make('file')
                                     ->icon('heroicon-o-photo')
                                     ->schema([
-                                        //self::getFieldNameInput(),
+                                        self::getFieldNameInput(),
                                         Grid::make()
                                             ->schema([
                                                 Checkbox::make('is_multiple'),
@@ -115,7 +114,7 @@ class BuilderTestResource extends Resource
             'create' => Pages\CreateBuilderTest::route('/create'),
             'edit' => Pages\EditBuilderTest::route('/{record}/edit'),
         ];
-    }
+    }    
 
     protected static function getFieldNameInput(): Grid
     {
@@ -137,4 +136,5 @@ class BuilderTestResource extends Resource
                     ->required(),
             ]);
     }
+
 }

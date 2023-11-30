@@ -11,10 +11,10 @@ class BuilderTest extends Model
 
     protected $fillable = [
         'name',
-        'builder',
+        'schema',
     ];
 
     protected $casts = [
-        'builder' => 'array',
+        'schema' => 'array',
     ];
 }

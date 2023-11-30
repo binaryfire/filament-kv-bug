@@ -39,7 +39,7 @@ class BuilderTestResource extends Resource
                 Section::make('Builder')
                     ->collapsible()
                     ->schema([
-                        Builder::make('builder')
+                        Builder::make('schema')
                             ->blocks([
                                 Block::make('text')
                                     ->label('Text input')
